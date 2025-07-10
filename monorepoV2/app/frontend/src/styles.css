@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Estilos globales pastel, modernos y minimalistas */
+:root {
+  --primary: #a3c9f9;
+  --secondary: #f9d5e5;
+  --accent: #b8e0d2;
+  --background: #f7faff;
+  --text: #333;
+  --border-radius: 12px;
+  --input-bg: #fff;
+  --input-border: #dbeafe;
+  --error: #ffb4b4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--input-border);
+  padding: 10px 12px;
+  background: var(--input-bg);
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+  max-width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+}
+
+button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+  width: 100%;
+  max-width: 100%;
+}
+
+button:hover {
+  background: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* Tarjetas y contenedores */
+.card, .dashboard-container, .login-container {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 12px 0 rgba(163, 201, 249, 0.08);
+  padding: 24px;
+  margin: 24px auto;
+  max-width: 420px;
+  width: 90%;
+  min-width: 280px;
+}
+
+h1, h2, h3 {
+  color: var(--primary);
+  font-weight: 700;
+  margin-top: 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--secondary);
+}
+
+/* Errores */
+.error {
+  color: var(--error);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card, .dashboard-container, .login-container {
+    margin: 16px auto;
+    padding: 20px;
+    width: 95%;
+  }
+  
+  input, button, select, textarea {
+    padding: 12px 16px;
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card, .dashboard-container, .login-container {
+    margin: 12px auto;
+    padding: 16px;
+    width: 98%;
+  }
+  
+  body {
+    padding: 0 8px;
+  }
+}

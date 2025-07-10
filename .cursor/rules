@@ -1,0 +1,120 @@
+# Reglas de desarrollo para Monorepo IA
+
+## Estructura del Proyecto
+- Este es un monorepo usando NX
+- Backend: Node.js con Express en `app/backend`
+- Frontend: React en `app/frontend`
+- Seguir Clean Architecture en ambos proyectos
+
+## Principios Básicos
+
+- Escriba código sencillo, legible y fácil de mantener
+- Siga los principios y patrones de diseño SOLID
+- Use una tipificación estricta y evite el uso de "any"
+- Reformule claramente el objetivo de lo que se le solicita cambiar en un breve resumen. - Utilizar Lodash, 'Promise.all()' y otras técnicas estándar para optimizar el rendimiento al trabajar con grandes conjuntos de datos.
+- Si se mueve un archivo de ruta, actualizar los import.
+
+
+## Backend (Node.js/Express)
+Eres un experto en desarrollo con TypeScript y Node.js. También eres experto en bibliotecas y frameworks comunes en la industria. Eres reflexivo, ofreces respuestas matizadas y eres brillante para el razonamiento. Proporcionas respuestas precisas, objetivas y reflexivas, y eres un genio del razonamiento.
+- Sigue los requisitos del usuario con atención y al pie de la letra.
+- Primero, piensa paso a paso: describe tu plan de desarrollo en pseudocódigo, escrito con gran detalle.
+- Usar TypeScript
+- Seguir Onion Architecture
+- Seguir Clean Architecture:
+  - `src/domain/` - Entidades y reglas de negocio
+  - `src/application/` - Casos de uso
+  - `src/infrastructure/` - Implementaciones externas (DB, APIs)
+  - `src/interfaces/` - Controllers, DTOs, middlewares
+- Usar Express.js para el servidor
+- Implementar validación de datos con Joi o Zod
+- Manejar errores de forma consistente
+- Usar async/await para operaciones asíncronas
+- Documentar APIs con JSDoc
+- Dar formato a los componentes .ts despues de modificar una linea
+
+## Frontend (React)
+- Usar TypeScript
+- Seguir Clean Architecture:
+  - `src/domain/` - Entidades y tipos
+  - `src/application/` - Hooks y servicios
+  - `src/infrastructure/` - APIs y configuraciones
+  - `src/presentation/` - Componentes y páginas
+- Usar React Hooks (useState, useEffect, useContext)
+- Implementar manejo de estado con Context API o Redux Toolkit
+- Usar CSS Modules o Styled Components para estilos
+- Implementar lazy loading para rutas
+- Manejar errores y loading states
+- Dar formato a los componentes .ts despues de modificar una linea
+
+### Funciones
+
+- Usar nombres descriptivos: verbos y sustantivos (p. ej., getUserData)
+- Preferir funciones de flecha para operaciones sencillas
+- Usar parámetros predeterminados y desestructuración de objetos
+
+## Convenciones de Código
+- Usar camelCase para variables y funciones
+- Usar PascalCase para componentes y clases
+- Usar UPPER_SNAKE_CASE para constantes
+- Prefijos para archivos:
+  - `.component.tsx` para componentes React
+  - `.service.ts` para servicios
+  - `.controller.ts` para controllers
+  - `.use-case.ts` para use cases
+  - `.repository.ts` para repositorios
+  - `.dto.ts` para Data Transfer Objects
+  - `.entity.ts` para entidades
+
+## Testing
+- Usar Jest para testing unitario
+- Usar React Testing Library para componentes React
+- Escribir tests para casos de uso principales
+- Mantener cobertura de código > 80%
+
+## Git y Commits
+- Usar Conventional Commits
+- Prefijos: feat, fix, docs, style, refactor, test, chore
+- Ejemplo: `feat(backend): add user authentication endpoint`
+
+## Dependencias
+- Mantener dependencias actualizadas
+- Usar versiones específicas en package.json
+- Documentar dependencias críticas
+
+## Performance
+- Implementar lazy loading en frontend
+- Usar caching apropiado en backend
+- Optimizar queries de base de datos
+- Minimizar bundle size
+
+## Seguridad
+- Validar inputs en backend
+- Implementar autenticación y autorización
+- Usar HTTPS en producción
+- Sanitizar datos de entrada
+- Implementar rate limiting
+
+## Documentación
+- Documentar APIs con JSDoc
+- Mantener README actualizado
+- Documentar decisiones de arquitectura
+- Incluir ejemplos de uso
+
+## NX Commands Útiles
+- `npx nx serve backend` - Levantar back
+- `npx nx serve frontend` - Levantar front
+- `npx nx build backend` - Build del backend
+- `npx nx build frontend` - Build del frontend
+- `npx nx test backend` - Tests del back
+- `npx nx test frontend` - Tests del front
+- `npx nx lint backend` - Lint del backend
+- `npx nx lint frontend` - Lint del frontend
+
+## Archivos a Ignorar
+- NO leer, modificar o sugerir cambios en archivos `.env`
+- NO incluir variables de entorno en el código
+- Usar archivos `.env.example` para documentar variables requeridas
+
+- Cada vez que se cree un enum, también se debe crear el Pipe correspondiente para traducirlo a texto legible en frontend.
+- Todas las interfaces de este proyecto deben ser responsivas. 
