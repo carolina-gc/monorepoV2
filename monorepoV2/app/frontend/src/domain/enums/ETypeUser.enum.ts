@@ -1,4 +1,4 @@
 export enum ETypeUser {
-  admin = 'admin',
-  employee = 'employee',
+  ADMIN = 'admin',
+  EMPLOYEE = 'employee',
 } 

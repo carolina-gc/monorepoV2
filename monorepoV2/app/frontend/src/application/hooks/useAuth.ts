@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { login, LoginResponse } from '../services/auth.service';
+import { useNavigate } from 'react-router-dom';
+import { login, logout as authLogout, LoginResponse } from '../services/auth.service';
 import { useAsyncOperation } from './useAsyncOperation';
 
 export function useAuth() {
+  const navigate = useNavigate();
   const [user, setUser] = useState<LoginResponse['user'] | null>(() => {
     const savedUser = localStorage.getItem('user');
     return savedUser ? JSON.parse(savedUser) : null;
@@ -39,10 +41,16 @@ export function useAuth() {
   };
 
   const logout = () => {
+    // Limpiar estado
     setUser(null);
     setToken(null);
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
+    setError(null);
+    
+    // Usar la función del servicio para limpiar localStorage
+    authLogout();
+    
+    // Redirigir al login inmediatamente
+    navigate('/login', { replace: true });
   };
 
   const isAuthenticated = () => {
