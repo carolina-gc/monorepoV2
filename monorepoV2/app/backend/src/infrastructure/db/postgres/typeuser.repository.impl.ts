@@ -9,7 +9,7 @@ export class TypeUserRepositoryImpl implements ITypeUserRepository {
     this.repo = AppDataSource.getRepository(TypeUser);
   }
   async findById(id: number): Promise<TypeUser | null> {
-    return this.repo.findOneBy({ typeuserID: id });
+    return this.repo.findOneBy({ typeUserID: id });
   }
   async findAll(): Promise<TypeUser[]> {
     return this.repo.find();

@@ -7,19 +7,26 @@ interface AdminRouteProps {
   children: React.ReactNode;
 }
 
+function logoutAndRedirect() {
+  if (typeof window !== 'undefined') {
+    localStorage.clear();
+  }
+  return <Navigate to="/login" replace />;
+}
+
 export const AdminRoute: React.FC<AdminRouteProps> = ({ children }) => {
   const { user, isAuthenticated } = useAuth();
 
-  // Si no hay usuario logueado, redirigir al login
   if (!isAuthenticated()) {
     return <Navigate to="/login" replace />;
   }
 
-  // Si el usuario no es administrador, redirigir al dashboard de empleado
-  if (user.typeUser !== ETypeUser.admin) {
-    return <Navigate to="/employee/home" replace />;
+  switch (user?.typeUser) {
+    case ETypeUser.ADMIN:
+      return <>{children}</>;
+    case ETypeUser.EMPLOYEE:
+      return <Navigate to="/employee/home" replace />;
+    default:
+      return logoutAndRedirect();
   }
-
-  // Si es administrador, mostrar el contenido
-  return <>{children}</>;
 }; 

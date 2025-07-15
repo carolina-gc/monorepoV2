@@ -7,35 +7,43 @@ export interface IUser {
   email: string;
   password: string;
   typeUser: TypeUser;
-  created_at: Date;
-  updated_at: Date;
-  deleted_at?: Date;
+  numberPhone: string;
+  countryCode: string;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt?: Date;
 }
 
 @Entity('users')
 export class User implements IUser {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ name: 'user_id' })
   userID: number;
 
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
-  @Column({ type: 'varchar', length: 255 })
+  @Column({ type: 'varchar', length: 255, unique: true })
   email: string;
 
   @Column({ type: 'varchar', length: 255 })
   password: string;
 
   @ManyToOne(() => TypeUser, (typeUser) => typeUser.users)
-  @JoinColumn({ name: 'typeUserID' })
+  @JoinColumn({ name: 'type_user_id' })
   typeUser: TypeUser;
 
-  @CreateDateColumn({ type: 'timestamp with time zone', default: () => 'CURRENT_TIMESTAMP' })
-  created_at: Date;
+  @Column({ name: 'number_phone', type: 'varchar', length: 10 })
+  numberPhone: string;
 
-  @UpdateDateColumn({ type: 'timestamp with time zone', default: () => 'CURRENT_TIMESTAMP' })
-  updated_at: Date;
+  @Column({ name: 'country_code', type: 'varchar', length: 5 })
+  countryCode: string;
 
-  @DeleteDateColumn({ type: 'timestamp with time zone', nullable: true })
-  deleted_at?: Date;
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp with time zone', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp with time zone', default: () => 'CURRENT_TIMESTAMP' })
+  updatedAt: Date;
+
+  @DeleteDateColumn({ name: 'deleted_at', type: 'timestamp with time zone', nullable: true })
+  deletedAt?: Date;
 } 

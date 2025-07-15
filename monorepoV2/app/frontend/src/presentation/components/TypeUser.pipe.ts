@@ -2,9 +2,9 @@ import { ETypeUser } from '../../domain/enums/ETypeUser.enum';
 
 export function typeUserPipe(type: ETypeUser): string {
   switch (type) {
-    case ETypeUser.admin:
+    case ETypeUser.ADMIN:
       return 'Administrador';
-    case ETypeUser.employee:
+    case ETypeUser.EMPLOYEE:
       return 'Empleado';
     default:
       return 'Desconocido';

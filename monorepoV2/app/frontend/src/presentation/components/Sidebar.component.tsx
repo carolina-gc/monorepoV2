@@ -14,8 +14,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed = false, onToggle 
   const location = useLocation();
   const { user, logout } = useAuth();
   
-  const isAdmin = user?.typeUser === ETypeUser.admin;
-  const isEmployee = user?.typeUser === ETypeUser.employee;
+  const isAdmin = user?.typeUser === ETypeUser.ADMIN;
+  const isEmployee = user?.typeUser === ETypeUser.EMPLOYEE;
 
   const handleToggle = () => {
     const newCollapsed = !collapsed;

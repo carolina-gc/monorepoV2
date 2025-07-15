@@ -31,7 +31,7 @@ Eres un experto en desarrollo con TypeScript y Node.js. También eres experto en
 - Manejar errores de forma consistente
 - Usar async/await para operaciones asíncronas
 - Documentar APIs con JSDoc
-- Dar formato a los componentes .ts despues de modificar una linea
+- Dar formato con prettier a los componentes .ts despues de modificar una linea
 
 ## Frontend (React)
 - Usar TypeScript
@@ -117,4 +117,6 @@ Eres un experto en desarrollo con TypeScript y Node.js. También eres experto en
 - Usar archivos `.env.example` para documentar variables requeridas
 
 - Cada vez que se cree un enum, también se debe crear el Pipe correspondiente para traducirlo a texto legible en frontend.
-- Todas las interfaces de este proyecto deben ser responsivas. 
+- Todas las interfaces de este proyecto deben ser responsivas.
+- Prevenir errores futuros
+- Después de aplicar cambios, revisar que todo siga funcionando sin errores.

@@ -3,36 +3,33 @@ import { User } from './user.entity';
 import { ETypeUser } from '../enums/typeuser.enum';
 
 export interface ITypeUser {
-  typeuserID: number;
+  typeUserID: number;
   type: ETypeUser;
   description?: string;
-  created_at: Date;
-  updated_at: Date;
-  deleted_at?: Date;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt?: Date;
 }
 
 @Entity('type_users')
 export class TypeUser implements ITypeUser {
-  @PrimaryGeneratedColumn()
-  typeuserID: number;
+  @PrimaryGeneratedColumn({ name: 'type_user_id' })
+  typeUserID: number;
 
-  @Column({
-    type: 'enum',
-    enum: ETypeUser,
-  })
+  @Column({ type: 'enum', enum: ETypeUser })
   type: ETypeUser;
 
   @Column({ type: 'text', nullable: true })
   description?: string;
 
-  @CreateDateColumn()
-  created_at: Date;
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
 
-  @UpdateDateColumn()
-  updated_at: Date;
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 
-  @DeleteDateColumn({ nullable: true })
-  deleted_at?: Date;
+  @DeleteDateColumn({ name: 'deleted_at', nullable: true })
+  deletedAt?: Date;
 
   @OneToMany(() => User, (user) => user.typeUser)
   users: User[];

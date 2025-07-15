@@ -12,7 +12,7 @@ export const LoginPage: React.FC = () => {
   const { loginUser, error } = useAuth();
   const navigate = useNavigate();
 
-  const validate = () => {
+  const validate = (): boolean => {
     let valid = true;
     setEmailError('');
     setPasswordError('');
@@ -27,14 +27,14 @@ export const LoginPage: React.FC = () => {
     return valid;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
     const res = await loginUser(email, password);
     if (res && res.user) {
-      if (res.user.typeUser === ETypeUser.admin) {
+      if (res.user.typeUser === ETypeUser.ADMIN) {
         navigate('/admin/dashboard');
-      } else if (res.user.typeUser === ETypeUser.employee) {
+      } else if (res.user.typeUser === ETypeUser.EMPLOYEE) {
         navigate('/employee/home');
       }
     }
@@ -45,8 +45,9 @@ export const LoginPage: React.FC = () => {
       <h2>Iniciar sesión</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 16 }}>
-          <label>Correo electrónico</label>
+          <label htmlFor="email">Correo electrónico</label>
           <input
+            id="email"
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
