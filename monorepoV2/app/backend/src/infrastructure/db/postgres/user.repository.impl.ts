@@ -13,18 +13,18 @@ export class UserRepositoryImpl implements IUserRepository {
     return this.repo.save(newUser);
   }
   async findByEmail(email: string): Promise<User | null> {
-    return this.repo.findOne({ where: { email, deleted_at: null }, relations: ['typeUser'] });
+    return this.repo.findOne({ where: { email, deletedAt: null }, relations: ['typeUser'] });
   }
   async findAllActive(): Promise<User[]> {
-    return this.repo.find({ where: { deleted_at: null }, relations: ['typeUser'] });
+    return this.repo.find({ where: { deletedAt: null }, relations: ['typeUser'] });
   }
   async findById(id: number): Promise<User | null> {
-    return this.repo.findOne({ where: { userID: id, deleted_at: null }, relations: ['typeUser'] });
+    return this.repo.findOne({ where: { userID: id, deletedAt: null }, relations: ['typeUser'] });
   }
   async update(user: User): Promise<User> {
     return this.repo.save(user);
   }
   async softDelete(id: number): Promise<void> {
-    await this.repo.update(id, { deleted_at: new Date() });
+    await this.repo.update(id, { deletedAt: new Date() });
   }
 } 
