@@ -1,6 +1,7 @@
 import React from 'react';
 import { AdminLayout } from '../components/AdminLayout.component';
 import { useAsyncOperation } from '../../application/hooks/useAsyncOperation';
+import { testConnection } from '../../application/services/test.service';
 import './AdminDashboard.page.css';
 
 export const AdminDashboard: React.FC = () => {
@@ -36,6 +37,20 @@ export const AdminDashboard: React.FC = () => {
     );
   };
 
+  const handleTestConnection = async () => {
+    try {
+      const response = await executeAsync(
+        () => testConnection(),
+        'Probando conexión...'
+      );
+      if (response) {
+        alert(`Conexión exitosa: ${response.message}`);
+      }
+    } catch (error) {
+      alert(`Error de conexión: ${error instanceof Error ? error.message : 'Error desconocido'}`);
+    }
+  };
+
   return (
   <AdminLayout>
     <div className="dashboard-container">
@@ -44,46 +59,24 @@ export const AdminDashboard: React.FC = () => {
         <p>Bienvenido al panel de administración</p>
       </div>
       
-      <div className="dashboard-stats">
-        <div className="stat-card">
-          <div className="stat-icon">👥</div>
-          <div className="stat-content">
-            <h3>Total Usuarios</h3>
-            <p className="stat-number">0</p>
-          </div>
-        </div>
-        
-        <div className="stat-card">
-          <div className="stat-icon">👨‍💼</div>
-          <div className="stat-content">
-            <h3>Administradores</h3>
-            <p className="stat-number">0</p>
-          </div>
-        </div>
-        
-        <div className="stat-card">
-          <div className="stat-icon">👷</div>
-          <div className="stat-content">
-            <h3>Empleados</h3>
-            <p className="stat-number">0</p>
-          </div>
-        </div>
-      </div>
-      
       <div className="dashboard-actions">
         <h2>Acciones Rápidas</h2>
         <div className="action-buttons">
-          <button className="action-btn" onClick={handleCreateUser}>
+          <button className="btn-primary btn-large" onClick={handleCreateUser}>
             <span className="action-icon">➕</span>
             <span>Crear Usuario</span>
           </button>
-          <button className="action-btn" onClick={handleViewReports}>
+          <button className="btn-primary btn-large" onClick={handleViewReports}>
             <span className="action-icon">📊</span>
             <span>Ver Reportes</span>
           </button>
-          <button className="action-btn" onClick={handleSettings}>
+          <button className="btn-primary btn-large" onClick={handleSettings}>
             <span className="action-icon">⚙️</span>
             <span>Configuración</span>
+          </button>
+          <button className="btn-primary btn-large" onClick={handleTestConnection}>
+            <span className="action-icon">🔗</span>
+            <span>Probar Conexión</span>
           </button>
         </div>
       </div>

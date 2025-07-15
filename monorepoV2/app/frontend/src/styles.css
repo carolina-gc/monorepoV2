@@ -69,14 +69,24 @@ label {
 }
 
 /* Tarjetas y contenedores */
-.card, .dashboard-container, .login-container {
+.card, .dashboard-container {
   background: #fff;
   border-radius: var(--border-radius);
   box-shadow: 0 2px 12px 0 rgba(163, 201, 249, 0.08);
   padding: 24px;
   margin: 24px auto;
-  max-width: 420px;
+  max-width: 100%;
   width: 90%;
+  min-width: 280px;
+}
+.login-container {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 12px 0 rgba(163, 201, 249, 0.08);
+  padding: 24px;
+  margin: 24px auto;
+  width: 410px;
+  max-width: 80%;
   min-width: 280px;
 }
 
@@ -134,4 +144,100 @@ a:hover {
   body {
     padding: 0 8px;
   }
+}
+
+/* Estándares de botones para todo el proyecto */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  max-width: 150px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: #f8f9fa;
+  color: #555;
+  border: 2px solid #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+  transform: translateY(-1px);
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-height: 32px;
+}
+
+.btn-large {
+  padding: 14px 28px;
+  font-size: 16px;
+  min-height: 48px;
+}
+
+.btn-icon {
+  padding: 8px;
+  min-width: 36px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+  background: #f8f9fa;
+  transform: scale(1.05);
+}
+
+.btn-edit {
+  color: #007bff;
+}
+
+.btn-edit:hover {
+  background: #e3f2fd !important;
+}
+
+.btn-delete {
+  color: #dc3545;
+}
+
+.btn-delete:hover {
+  background: #ffebee !important;
 }
