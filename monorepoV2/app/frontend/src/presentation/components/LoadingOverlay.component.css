@@ -63,6 +63,7 @@
   .loading-content {
     padding: 30px 20px;
     margin: 20px;
+    max-width: 280px;
   }
   
   .spinner {
@@ -73,5 +74,23 @@
   
   .loading-message {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-content {
+    padding: 25px 15px;
+    margin: 15px;
+    max-width: 250px;
+  }
+  
+  .spinner {
+    width: 35px;
+    height: 35px;
+    border-width: 2px;
+  }
+  
+  .loading-message {
+    font-size: 13px;
   }
 } 

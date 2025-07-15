@@ -16,7 +16,7 @@ export const EmployeeRoute: React.FC<EmployeeRouteProps> = ({ children }) => {
   }
 
   // Si el usuario no es empleado, redirigir al dashboard de admin
-  if (user?.typeUser !== ETypeUser.employee) {
+  if (user?.typeUser !== ETypeUser.EMPLOYEE) {
     return <Navigate to="/admin/dashboard" replace />;
   }
 

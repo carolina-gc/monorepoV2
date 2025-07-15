@@ -155,9 +155,79 @@
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
+    transition: transform 0.3s ease;
   }
   
   .sidebar.collapsed {
     transform: translateX(0);
+    width: 250px;
+  }
+  
+  .sidebar-header {
+    padding: 15px;
+  }
+  
+  .sidebar-header h3 {
+    font-size: 16px;
+  }
+  
+  .toggle-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  
+  .nav-link {
+    padding: 12px 15px;
+  }
+  
+  .nav-link .icon {
+    font-size: 16px;
+    margin-right: 12px;
+  }
+  
+  .sidebar-footer {
+    padding: 15px;
+  }
+  
+  .logout-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .logout-btn .icon {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar.collapsed {
+    width: 200px;
+  }
+  
+  .sidebar-header {
+    padding: 12px;
+  }
+  
+  .sidebar-header h3 {
+    font-size: 14px;
+  }
+  
+  .nav-link {
+    padding: 10px 12px;
+  }
+  
+  .nav-link .icon {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .sidebar-footer {
+    padding: 12px;
+  }
+  
+  .logout-btn {
+    padding: 8px 10px;
+    font-size: 12px;
   }
 } 
