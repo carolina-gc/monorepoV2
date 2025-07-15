@@ -94,3 +94,27 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+# Estructura de Carpetas Backend (actualizada)
+
+```
+app/backend/src/application/
+  user/
+    use-cases/
+      create-user.usecase.ts
+      update-user.usecase.ts
+      list-users.usecase.ts
+      delete-user.usecase.ts
+    tests/
+      create-user.use-case.spec.ts
+      update-user.use-case.spec.ts
+      list-users.use-case.spec.ts
+      delete-user.use-case.spec.ts
+  auth/
+    use-cases/
+      login.use-case.ts
+    tests/
+      login.use-case.spec.ts
+```
+
+> **Nota:** Esta documentación se mantendrá actualizada automáticamente cada vez que se mueva, cree o elimine un archivo relevante en la estructura del backend.
